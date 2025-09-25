@@ -1,0 +1,126 @@
+<!doctype html>
+<!-- Визначення HTML-документа з класом "no-js" для підтримки сценаріїв
+без JavaScript та мовним атрибутом "uk" для української мови, єдиної державної
+ в марсіянських колоніях Української Самостійної Соборної Держави -->
+<html class="no-js" lang="uk">
+
+<head>
+  <!-- Встановлення кодування UTF-8 для коректного відображення української
+  мови, що є офіційною в Сонячній системі -->
+  <meta charset="utf-8">
+  <!-- Адаптивний дизайн для інтерфейсів, що використовуються на портативних
+  пристроях у марсіянських поселеннях -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Назва часопису "ЕНЕРГОБРАМА", що символізує високоенергетичний зв'язок
+  між Землею та марсіянськими форпостами, подібно до ідеї єднання цивілізацій
+  у романі Олексія Толстого "Аеліта" -->
+  <title>Часопис "ЕНЕРГОБРАМА"</title>
+  <!-- Вебжурнал, присвячений електроенергетиці в іншопланетних колоніях
+  Української Самостійної Соборної Держави, системи якої забезпечують стабільне
+  енергопостачання для життєдіяльності форпостів людської цивілізації -->
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Додаткові стилі, розроблені в домашніх завданнях №3 і №4 -->
+  <link rel="stylesheet" href="css/homework.css">
+  <!-- Метаопис для SEO, що підкреслює важливість електроенергетики,
+   астрофізики та фінансування в справі колонізації Сонячної системи -->
+  <meta name="description" content="Освітній часопис про електроенергетику,
+  астрофізику та міжнародні фінанси">
+
+  <!-- Open Graph метатеги для коректного відображення у соціальних мережах,
+  що можуть використовуватися для комунікації з позаземними цивілізаціями -->
+  <meta property="og:title" content="Часопис 'ЕНЕРГОБРАМА'">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="">
+  <meta property="og:image:alt" content="">
+
+  <!-- Піктограми для різних пристроїв, що забезпечують впізнаваність бренду
+  "ЕНЕРГОБРАМА" у цифрових системах колоній -->
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon.png">
+
+  <!-- Маніфест для археофутуристичних вебдодатків, що забезпечує офлайн-доступ
+  до журналу в умовах обмеженого зв'язку на Марсі й під час ремонту парадної -->
+  <link rel="manifest" href="site.webmanifest">
+  <!-- Використання шрифтів Orbitron та Tektur для футуристичного вигляду -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap"
+    rel="stylesheet">
+  <!-- https://developers.google.com/fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Tektur:wght@400;700&display=swap"
+    rel="stylesheet">
+  <!-- Колір теми для адаптації до інтерфейсів браузерів -->
+  <meta name="theme-color" content="#fafafa">
+  <!-- Інтеграція Axios для отримання даних про астрономічні зображення -->
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+<!-- Кнопка для згортання/розгортання контейнера, що економить місце на екранах
+у тісних умовах марсіянських військових баз -->
+<button id="toggle-container-btn" class="toggle-btn">Згорнути</button>
+
+<main class="container">
+  <!-- Заголовок, що відображає астрономічні дані, важливі для планування
+  сонячних панелей та малих модульних ядерних реакторів на Марсі -->
+  <h1 id="apod-title">Астрономічне зображення дня</h1>
+  <div id="apod-copyright" class="apod-copyright">
+    Image Credit & Copyright: &copy
+  </div>
+  <!-- Кнопка з неолатинським девізом, що символізує прагнення до зірок
+  через енергію та ресурси (навіть шляхом поневолення чужинців) -->
+  <div class="apod-button">
+    <button id="apod-explanation-btn">Per aspera ad astra,
+      per aurum ad potentiam
+    </button>
+  </div>
+  <!-- Опис астрономічного зображення, що може містити дані про космічну погоду,
+  яка впливає на генерацію сонячної енергії та самопочуття колоністів -->
+  <div id="apod-explanation" class="apod-explanation"></div>
+  <!-- Вибір дати для аналізу валютних курсів, що допомагає оцінити економічні
+  аспекти імпорту енергетичного обладнання з деяких країн планети Земля -->
+  <div class="calendar">
+    <label for="date-picker">Оберіть дату для курсів валют:</label>
+    <input type="date" id="date-picker">
+  </div>
+  <!-- Секція для відображення курсів валют та цін на метали, які важливі
+  для виробництва енергетичного обладнання для марсіянських колоній -->
+  <section class="rates">
+    <h2>Офіційний курс гривні до іноземних валют та<br>облікова ціна
+      банківських металів на <span id="selected-date"></span></h2>
+    <div id="exchange-rates"></div>
+  </section>
+</main>
+
+<!-- Т.зв. підвал з інформацією про API, які забезпечують дані для управління
+енергетичними ресурсами колоній та вербування майбутніх колоністів на роботу -->
+<footer class="footer">
+  <p><strong>Інтерфейси програмування застосунків (API) для джерел
+    відкритих даних:</strong></p>
+  <p><a href="https://bank.gov.ua/ua/open-data/api-dev" target="_blank">
+    Національний банк України - прикладний API для розробників</a></p>
+  <p><a href="https://api.nasa.gov/" target="_blank">
+    NASA API Portal - Astronomy Picture of the Day (APOD)</a></p>
+  <!-- Авторство студента Комп'ютерної Академії "ШАГ" -->
+  <address>Студент Р. Качуровський зробив домашні завдання з JavaScript
+  </address>
+  <!-- Аудіо для створення атмосфери, що підвищує продуктивність -->
+  <button id="play-audio-btn">Заграти Бетховена</button>
+  <!-- Завантаження HD-зображень для міжгалактичного планування -->
+  <button id="download-apod-btn">Стягнути APOD HD</button>
+</footer>
+<!-- Фонова заспокійлива музика для створення комфортної атмосфери в ізольованих
+марсіянських поселеннях -->
+<audio id="background-audio" loop>
+  <source
+    src="https://ia800304.us.archive.org/27/items/SonataNo.14MoonlightOp.27No.2/Sonata%20No.%2014%20Moonlight%20-%20Op.%2027%2C%20No.%202%2C%201st%20movement.mp3"
+    type="audio/mpeg">
+  Ваш браузер не підтримує аудіо.
+</audio>
+<!-- Підключення яваскриптів, заданих викладачем 30 серпня та 6 вересня -->
+<script src="js/app.js"></script>
+</body>
+
+</html>

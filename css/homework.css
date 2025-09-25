@@ -1,0 +1,331 @@
+/* Визначення глобальних CSS-змінних для кольорів, градієнтів, тіней та фону.
+Забезпечує модульність та консистентність стилів */
+:root {
+  --primary-color: #fff5e1;
+  /* Основний колір тексту, світло-кремовий для високої читабельності */
+  --accent-color: #ffd7b5;
+  /* Акцентний колір для заголовків та декоративних елементів */
+  --gradient-start: #ff5733;
+  /* Початковий колір градієнта для кнопок та сповіщень */
+  --gradient-end: #ffd7b5; /* Кінцевий колір градієнта, відповідає акцентному */
+  --border-color: #d94f2b;
+  /* Колір рамок для консистентного виділення елементів */
+  --shadow-color: rgba(217, 79, 43, 0.7);
+  /* Колір тіні з прозорістю для ефекту глибини */
+  --container-bg: rgba(224, 123, 57, 0.7);
+  /* Напівпрозорий фон контейнерів для ефекту скла */
+  --rate-card-bg: rgba(244, 162, 97, 0.6);
+  /* Напівпрозорий фон для карток курсів валют із текстурою */
+  --high-contrast-text: #ffe8d6;
+  /* Замінено яскраво-білий на м'якший кремовий відтінок */
+}
+
+/* Стилізація основного контейнера сторінки */
+body {
+  margin: 0; /* Видалення стандартних відступів браузера */
+  font-family: 'Orbitron', 'Tektur', 'Arial', sans-serif;
+  /* Футуристичні шрифти з резервним sans-serif */
+  font-size: 15px; /* Базовий розмір шрифту для консистентності */
+  /*
+  background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+  /* Резервний градієнтний фон
+  */
+  background-size: cover; /* Фон заповнює весь простір */
+  background-position: center; /* Центрування фонового зображення */
+  background-repeat: no-repeat; /* Заборона повторення фону */
+  min-height: 100vh; /* Мінімальна висота для повноекранного відображення */
+  display: flex; /* Flexbox для центрування вмісту */
+  flex-direction: column; /* Вертикальне вирівнювання елементів */
+  justify-content: center; /* Вертикальне центрування */
+  align-items: center; /* Горизонтальне центрування */
+  color: var(--primary-color); /* Основний колір тексту */
+  text-shadow: 0 0 8px var(--shadow-color);
+  /* Тінь тексту для контрасту на яскравому фоні */
+}
+
+/* Стилізація основного контейнера контенту */
+.container {
+  text-align: center; /* Центрування тексту */
+  background: var(--container-bg); /* Напівпрозорий фон для ефекту скла */
+  padding: 15px 20px 20px 20px;
+  /* Зменшений верхній відступ (10px) для скорочення простору до назви */
+  margin-top: 50px; /* Верхнє поле */
+  border-radius: 10px; /* Закруглення кутів */
+  max-width: 600px; /* Максимальна ширина для великих екранів */
+  width: 90%; /* Адаптивна ширина для менших екранів */
+  border: 2px solid var(--border-color); /* Рамка для виділення */
+  box-shadow: 0 0 20px var(--shadow-color); /* Тінь для глибини */
+  animation: fadeIn 1s ease-in-out; /* Анімація появи при завантаженні */
+  /* position: relative; /* Для позиціонування псевдоелементів */
+}
+
+/* Декоративний псевдоелемент із символом (♂) над контейнером */
+.container::before {
+  content: '♂'; /* Символ планети Марс як декоративний елемент */
+  font-size: 3em; /* Великий розмір шрифту */
+  color: var(--accent-color); /* Акцентний колір */
+  position: absolute; /* Абсолютне позиціонування відносно контейнера */
+  top: -40px; /* Зміщення вгору */
+  left: 50%; /* Центрування по горизонталі */
+  transform: translateX(-50%); /* Зміщення для точного центрування */
+  text-shadow: 0 0 20px var(--shadow-color); /* Тінь для ефекту глибини */
+}
+
+/* Анімація появи елементів */
+@keyframes fadeIn {
+  from {
+    opacity: 0; /* Початкова прозорість */
+  }
+  to {
+    opacity: 1; /* Кінцева прозорість */
+  }
+}
+
+/* Циклічна анімація горизонтального зміщення та коливання прозорості */
+@keyframes dustStorm {
+  0% {
+    transform: translateX(0) rotate(0); /* Початкове положення */
+    opacity: 0.5; /* Початкова прозорість */
+  }
+  50% {
+    transform: translateX(10px) rotate(2deg);
+    /* Зміщення вправо, легке обертання */
+    opacity: 1; /* Максимальна видимість */
+  }
+  100% {
+    transform: translateX(0) rotate(0);
+    /* Повернення до початкового положення */
+    opacity: 0.5; /* Повернення до початкової прозорості */
+  }
+}
+
+/* Активація анімації при наведенні */
+.container:hover {
+  animation: dustStorm 3s infinite ease-in-out;
+  /* Циклічна анімація з плавними переходами */
+}
+
+/* Стилізація заголовків */
+h1, h2 {
+  color: var(--accent-color); /* Акцентний колір для виділення */
+  text-shadow: 0 0 10px var(--shadow-color); /* Тінь для контрасту */
+  margin-top: 5px;
+  /* Зменшений верхній відступ для скорочення простору від краю контейнера */
+  margin-bottom: 10px;
+  /* Збережено нижній відступ для розділення елементів */
+}
+
+/* Стилізація кнопок */
+button {
+  background: linear-gradient(45deg, var(--gradient-start), var(--gradient-end));
+  /* Градієнтний фон */
+  color: var(--primary-color); /* Колір тексту */
+  padding: 7px 15px; /* Внутрішні відступи */
+  border: 1px solid var(--border-color); /* Рамка */
+  box-shadow: inset 0 0 5px rgba(255, 87, 51, 0.5);
+  /* Внутрішня тінь для ефекту глибини */
+  border-radius: 5px; /* Закруглення кутів */
+  cursor: pointer; /* Курсор при наведенні */
+  margin: 10px 5px; /* Зовнішні відступи */
+  font-family: 'Orbitron', 'Tektur', 'Arial', sans-serif; /* Шрифт кнопок */
+  font-weight: 700; /* Жирний шрифт */
+  font-size: 1.2em;
+  text-transform: uppercase; /* Верхній регістр */
+  letter-spacing: 0.5px; /* Міжлітерний інтервал */
+  transition: transform 0.3s, box-shadow 0.3s; /* Плавний перехід для анімацій */
+}
+
+/* Ефект при наведенні на кнопку */
+button:hover {
+  transform: scale(1.1); /* Збільшення розміру */
+  text-transform: none; /* Змінення регістра */
+  box-shadow: 0 0 15px var(--shadow-color); /* Посилена тінь */
+}
+
+/* Стилізація кнопки перемикання */
+.toggle-btn {
+  position: fixed; /* Фіксована позиція */
+  top: 20px; /* Відступ зверху */
+  right: 20px; /* Відступ справа */
+  z-index: 1000; /* Високий пріоритет відображення */
+}
+
+/* Стилізація тексту авторських прав */
+.apod-copyright {
+  font-size: 1.3em; /* Збільшений розмір шрифту */
+  color: var(--primary-color); /* Основний колір */
+  text-shadow: 0 0 5px var(--shadow-color); /* Тінь для контрасту */
+  margin: 10px 0; /* Зовнішні відступи */
+}
+
+/* Стилізація контейнера календаря */
+.calendar {
+  margin: 20px 0; /* Зовнішні відступи */
+  font-size: 1.1em; /* Збільшений розмір шрифту */
+}
+
+/* Стилізація поля вводу дати */
+input[type="date"] {
+  padding: 5px; /* Внутрішні відступи */
+  border-radius: 5px; /* Закруглення кутів */
+  border: 2px solid var(--border-color); /* Рамка */
+  background: var(--container-bg); /* Напівпрозорий фон */
+  color: var(--primary-color); /* Колір тексту */
+  font-family: 'Orbitron', 'Tektur', 'Arial', sans-serif; /* Шрифт */
+}
+
+/* Стилізація контейнера для курсів */
+.rates {
+  margin-top: 20px; /* Верхній відступ */
+}
+
+/* Стилізація карток курсів */
+.rate-card {
+  /*
+  background: var(--rate-card-bg) url('https://www.solarsystemscope.com/textures/download/2k_mars.jpg') repeat;
+  background-size: 100px 50px;
+  */
+  background: var(--rate-card-bg); /* Лише напівпрозорий фон, без текстури */
+  padding: 6px; /* Внутрішні відступи */
+  margin: 10px 0; /* Зовнішні відступи */
+  border-radius: 8px; /* Закруглення кутів */
+  border: 1px solid var(--border-color); /* Рамка */
+  box-shadow: 0 0 10px rgba(217, 79, 43, 0.5);
+  /* М'якша і менш інтенсивна тінь */
+  font-size: 1.7em; /* Великий розмір шрифту */
+  font-weight: 600; /* Трохи легший шрифт для м'якості */
+  letter-spacing: 2px; /* Міжлітерний інтервал */
+  color: var(--high-contrast-text); /* Використовується новий м'якший колір */
+  text-shadow: 0 0 6px var(--shadow-color); /* М'якша тінь тексту */
+  backdrop-filter: blur(5px); /* Збільшене розмиття для ефекту скла */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  /* Плавний перехід для масштабу та тіні */
+}
+
+/* Ефект при наведенні на картку */
+.rate-card:hover {
+  transform: scale(1.05); /* Збільшення на 5% */
+  box-shadow: 0 0 20px rgba(217, 79, 43, 0.8), 0 0 30px rgba(255, 87, 51, 0.6); /* Неонове сяйво */
+}
+
+/* Стилізація блоку пояснення */
+.apod-explanation {
+  margin-top: 20px; /* Верхній відступ */
+  padding: 15px; /* Внутрішні відступи */
+  background: var(--container-bg); /* Напівпрозорий фон */
+  border: 2px solid var(--border-color); /* Рамка */
+  border-radius: 10px; /* Закруглення кутів */
+  color: var(--primary-color); /* Колір тексту */
+  text-align: justify; /* Вирівнювання тексту по ширині */
+  font-family: 'Orbitron', 'Tektur', 'Arial', sans-serif;
+  font-size: 1.2em;
+  width: 100%; /* Повна ширина */
+  box-sizing: border-box; /* Врахування рамки в розмірах */
+  display: none; /* Прихований за замовчуванням */
+  animation: fadeIn 1s; /* Анімація появи */
+}
+
+/* Стилізація футера */
+.footer {
+  margin-top: 20px; /* Верхній відступ */
+  text-align: center; /* Центрування тексту */
+  color: var(--primary-color); /* Колір тексту */
+  text-shadow: 0 0 5px var(--shadow-color); /* Тінь для контрасту */
+  font-size: 0.95em; /* Менший розмір шрифту */
+}
+
+/* Стилізація посилань у футері */
+.footer a {
+  color: var(--accent-color); /* Акцентний колір */
+  text-decoration: none; /* Без підкреслення */
+}
+
+/* Ефект при наведенні на посилання футера */
+.footer a:hover {
+  text-decoration: underline; /* Підкреслення при наведенні */
+}
+
+/* Приховування аудіоелемента */
+audio {
+  display: none; /* Не відображається в інтерфейсі */
+}
+
+/* Стилізація сповіщень */
+.alert {
+  background: linear-gradient(45deg, var(--gradient-start), var(--gradient-end));
+  /* Градієнтний фон */
+  color: var(--primary-color); /* Колір тексту */
+  padding: 15px; /* Внутрішні відступи */
+  border-radius: 10px; /* Закруглення кутів */
+  border: 4px solid var(--primary-color); /* Рамка */
+  box-shadow: 0 0 15px var(--shadow-color); /* Тінь */
+  position: fixed; /* Фіксована позиція */
+  top: 20px; /* Відступ зверху */
+  left: 50%; /* Центрування по горизонталі */
+  transform: translateX(-50%); /* Точне центрування */
+  z-index: 1000; /* Високий пріоритет відображення */
+  font-family: 'Orbitron', 'Tektur', 'Arial', sans-serif; /* Шрифт */
+  font-size: 1.5em; /* Збільшений шрифт */
+  animation: fadeIn 0.5s; /* Анімація появи */
+}
+
+/* Адаптація для екранів до 768px (мобільні пристрої) */
+@media (max-width: 768px) {
+  .container {
+    width: 90%; /* Адаптивна ширина */
+    padding: 8px 15px 15px 15px; /* Менший верхній відступ для компактності */
+  }
+
+  h1, h2 {
+    margin-top: 3px; /* Ще менший верхній відступ для мобільних */
+    text-shadow: 0 0 4px var(--shadow-color); /* М'якша тінь для мобільних */
+  }
+
+  button {
+    padding: 8px 15px; /* Менші відступи */
+    font-size: 0.95em; /* Менший розмір шрифту */
+  }
+
+  .rate-card {
+    font-size: 1.0em; /* Менший розмір шрифту для карток */
+    padding: 4px;  /* Менший відступ для мобільних */
+    text-shadow: 0 0 4px var(--shadow-color); /* М'якша тінь для мобільних */
+  }
+
+  .apod-explanation {
+    font-size: 0.95em; /* Менший розмір шрифту */
+    padding: 10px; /* Менші відступи */
+  }
+
+  .alert {
+    font-size: 1.1em;
+  }
+}
+
+/* Адаптація для екранів від 1200px (великі екрани) */
+@media (min-width: 1200px) {
+  .container {
+    max-width: 700px; /* Збільшена максимальна ширина */
+    box-shadow: 0 0 30px var(--shadow-color); /* Посилена тінь */
+  }
+
+  button {
+    padding: 9px 20px; /* Більші відступи */
+    font-size: 1.3em; /* Збільшений розмір шрифту */
+  }
+
+  .rate-card {
+    font-size: 2.0em; /* Більший розмір шрифту для карток */
+  }
+}
+
+/* Адаптація для планшетів */
+@media (min-width: 769px) and (max-width: 1199px) {
+  .container {
+    max-width: 600px;
+    padding: 15px;
+  }
+  .rate-card {
+    font-size: 1.5em;
+  }
+}
